@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawings Database</title>
+</head>
+<body>
+    <h1>Drawings Database</h1>
+
+    <form method="POST" action="{{ url_for('add_drawing') }}">
+        <label for="shape">Shape:</label>
+        <input type="text" name="shape" required>
+
+        <label for="details">Details:</label>
+        <input type="text" name="details" required>
+
+        <button type="submit">Add Drawing</button>
+    </form>
+
+    <h2>Drawings List</h2>
+    <ul>
+        {% for drawing in drawings %}
+            <li>{{ drawing.shape }} - {{ drawing.details }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
